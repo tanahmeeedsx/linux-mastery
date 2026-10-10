@@ -1,26 +1,55 @@
-# Linux-Mastery — Day 02
+# Linux-Mastery — Day 01
 
-## Command: `sudo resolvectl flush-caches`
+**Focus:** Practical Linux Commands  
+**Duration:** 1 Hour  
+**Commands:** 5
 
-**Purpose:** Clear the DNS cache on the system.
+---
 
-### What It Does
+### 1. `stat`
+View detailed file information.
 
-This command clears cached DNS records maintained by `systemd-resolved`. It can help troubleshoot DNS resolution issues when accessing websites.
+```bash
+stat /etc/hostname
+stat -c '%A %U %G %n' /etc/hostname
+```
 
-### Command Explained
+### 2. `find`
+Search for files and directories.
 
-- `sudo` — Runs the command with administrator privileges.
-- `resolvectl` — Manages and inspects the system's DNS resolver.
-- `flush-caches` — Clears the DNS cache.
+```bash
+find DAY-01
+find /etc -type f -name "hostname" 2>/dev/null
+```
 
-### When to Use
+### 3. `xargs`
+Pass command output to another command.
 
-- Troubleshooting DNS resolution issues.
-- Clearing cached DNS records before testing website access again.
+```bash
+find DAY-01 -type f | xargs ls -l
+find DAY-01 -type f | xargs -n 1 basename
+```
 
-### Important Note
+### 4. `tee`
+Display and save output simultaneously.
 
-This command does not change DNS server settings and does not guarantee that every website issue will be fixed.
+```bash
+echo "Linux-Mastery Day 01" | tee DAY-01/notes.txt
+echo "Another Linux lesson" | tee -a DAY-01/notes.txt
+```
 
-**Status:** Completed
+### 5. `du`
+Check disk space usage.
+
+```bash
+du -sh .
+du -sh DAY-01
+```
+
+---
+
+## Progress
+
+**Day 01 — Completed**
+
+**5 Commands · 1 Hour · Hands-on Practice**
